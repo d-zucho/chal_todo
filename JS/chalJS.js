@@ -50,7 +50,7 @@ const renderTodos = function(todos, filters) {
 
 	document.querySelector('#todoButton').addEventListener('click', function(e) {
 		const newTodoEl = document.createElement('p');
-		newTodoEl.textContent = document.querySelector('#newTodoText').target.value;
+		newTodoEl.textContent = document.querySelector('#newTodoText').textContent;
 		console.log(newTodoEl);
 	});
 

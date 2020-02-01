@@ -12,7 +12,12 @@ h1 {
 	padding: 20px;
 }
 
-#user-input {
+#todo-form {
+	padding: 15px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
+}
+
+#todo-section {
+	margin: 25px;
 }
