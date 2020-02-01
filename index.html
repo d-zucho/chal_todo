@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="style_chal.css" />
+		<title>Todo Challenge</title>
+	</head>
+	<body>
+		<header>
+			<h1>Todo</h1>
+			<h3><em>Never</em> forget anything again</h3>
+			<p>
+				Created by <em><strong>Danny Zucho</strong></em>
+			</p>
+			<hr />
+		</header>
+
+		<main>
+			<section id="user-input">
+				<!--   Input to add new Todo   -->
+				<div id="add-new-todo">
+					<label for="newTodoText">Add a New Todo: </label>
+					<input type="text" name="newTodoText" id="newTodoText" placeholder="Enter Text" />
+					<button id="todoButton">Add Todo</button>
+				</div>
+				<!--   Input to filter text   -->
+				<div id="filter">
+					<label for="filterText">Enter Your filter</label>
+					<input type="text" name="filterText" id="filterText" />
+				</div>
+			</section>
+			<br /><br />
+
+			<!--   Displaying Todos   -->
+			<section id="todo-section">
+				<div id="summary"></div>
+				<div id="todos"></div>
+			</section>
+		</main>
+
+		<script src="JS/chalJS.js"></script>
+	</body>
+</html>
