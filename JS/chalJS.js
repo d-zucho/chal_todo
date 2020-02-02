@@ -46,14 +46,6 @@ const renderTodos = function(todos, filters) {
 		document.querySelector('#todos').appendChild(p);
 	});
 
-	/**   --- Add New Todo ---    */
-
-	document.querySelector('#todoButton').addEventListener('click', function(e) {
-		const newTodoEl = document.createElement('p');
-		newTodoEl.textContent = document.querySelector('#newTodoText').textContent;
-		console.log(newTodoEl);
-	});
-
 	/**   --- Filter ---    */
 
 	document.querySelector('#filterText').addEventListener('input', function(e) {
@@ -77,3 +69,19 @@ const renderTodos = function(todos, filters) {
 };
 
 renderTodos(todos, filters);
+
+/**   --- Add New Todo ---    */
+
+document.querySelector('#todo-form').addEventListener('submit', function(e) {
+	// prevents default
+	e.preventDefault();
+
+	// Add new todo to Todos array
+	todos.push({ text: e.target.elements.newTodoText.value, completed: false });
+	console.log(e.target.elements.newTodoText.value);
+
+	e.target.elements.newTodoText.value = '';
+	document.querySelector('#summary').innerHTML = '';
+	document.querySelector('#todos').innerHTML = '';
+	renderTodos(todos, filters);
+});
