@@ -23,6 +23,7 @@ const todos = [
 
 const filters = {
 	searchText: '',
+	hideCompleted: false,
 };
 
 /**   --- START OF RENDER TODO FUNCTION ---    */
@@ -42,6 +43,7 @@ const renderTodos = function(todos, filters) {
 
 	todos.forEach(todo => {
 		const p = document.createElement('p');
+		// const checkBox = document.createElement('input');
 		p.textContent = ' - ' + todo.text;
 		document.querySelector('#todos').appendChild(p);
 	});
@@ -83,5 +85,10 @@ document.querySelector('#todo-form').addEventListener('submit', function(e) {
 	e.target.elements.newTodoText.value = '';
 	document.querySelector('#summary').innerHTML = '';
 	document.querySelector('#todos').innerHTML = '';
+	renderTodos(todos, filters);
+});
+
+document.querySelector('#hideCompleted').addEventListener('change', function(e) {
+	filters.hideCompleted = e.target.checked;
 	renderTodos(todos, filters);
 });
