@@ -55,8 +55,11 @@ const renderTodos = function(todos, filters) {
 
 		// Create filtered list to match user input
 		const filteredTodos = todos.filter(function(todo) {
-			return todo.text.toLowerCase().includes(filters.searchText.toLowerCase());
+			const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase());
+			const hideCompleted = !filters.hideCompleted || !todo.completed;
+			return searchTextMatch && hideCompleted;
 		});
+
 		// Clear section as filter is being applied to avoid posting
 		// duplicates
 		document.querySelector('#todos').innerHTML = '';
@@ -75,9 +78,7 @@ renderTodos(todos, filters);
 /**   --- Add New Todo ---    */
 
 document.querySelector('#todo-form').addEventListener('submit', function(e) {
-	// prevents default
 	e.preventDefault();
-
 	// Add new todo to Todos array
 	todos.push({ text: e.target.elements.newTodoText.value, completed: false });
 	console.log(e.target.elements.newTodoText.value);
